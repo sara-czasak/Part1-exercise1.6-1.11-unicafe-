@@ -11,7 +11,15 @@ const PositivePercent = ({positiveReviews, totalReviews}) => {
 }
 
 const Statistics = ({good, neutral, bad, totalReviews, points, positiveReviews}) => {
-  return <div>
+  if (good == 0 && bad == 0 && neutral == 0) {
+    return <div>
+      <p>
+        NO STATISTICS AVAILABLE
+      </p>
+    </div>
+  }
+  else {
+    return <div>
     <p>OUR STATS:</p>
       <ul>
         <li>GOOD: {good}</li>
@@ -22,6 +30,8 @@ const Statistics = ({good, neutral, bad, totalReviews, points, positiveReviews})
       <Average points={points} totalReviews={totalReviews}></Average>
       <PositivePercent positiveReviews={positiveReviews} totalReviews={totalReviews}></PositivePercent>
   </div>
+  }
+  
   
 }
 
@@ -70,6 +80,7 @@ const App = () => {
       <button onClick={handleGoodClick}>GOOD</button>
       <button onClick={handleNeutralClick}>NEUTRAL</button>
       <button onClick={handleBadClick}>BAD</button>
+      
       <Statistics good={good} bad={bad} neutral={neutral} totalReviews={totalReviews} points={points} positiveReviews={positiveReviews}/>
     </div>
   )
