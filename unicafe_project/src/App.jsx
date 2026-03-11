@@ -31,8 +31,10 @@ const Statistics = ({good, neutral, bad, totalReviews, points, positiveReviews})
       <PositivePercent positiveReviews={positiveReviews} totalReviews={totalReviews}></PositivePercent>
   </div>
   }
-  
-  
+}
+
+const Button = ({text, value}) => {
+  return <button onClick={value}>{text}</button>
 }
 
 const App = () => {
@@ -77,9 +79,9 @@ const App = () => {
   return (
     <div>
       <h1>Please let us know how we're doing!</h1>
-      <button onClick={handleGoodClick}>GOOD</button>
-      <button onClick={handleNeutralClick}>NEUTRAL</button>
-      <button onClick={handleBadClick}>BAD</button>
+      <Button value={handleGoodClick} text={'GOOD'}/>
+      <Button value={handleNeutralClick} text={'NEUTRAL'}/>
+      <Button value={handleBadClick} text={'BAD'}/>
       
       <Statistics good={good} bad={bad} neutral={neutral} totalReviews={totalReviews} points={points} positiveReviews={positiveReviews}/>
     </div>
