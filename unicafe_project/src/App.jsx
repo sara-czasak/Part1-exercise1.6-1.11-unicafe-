@@ -10,6 +10,21 @@ const PositivePercent = ({positiveReviews, totalReviews}) => {
   return <p>Positive reviews: {percent}%</p>
 }
 
+const Statistics = ({good, neutral, bad, totalReviews, points, positiveReviews}) => {
+  return <div>
+    <p>OUR STATS:</p>
+      <ul>
+        <li>GOOD: {good}</li>
+        <li>NEUTRAL: {neutral}</li>
+        <li>BAD: {bad}</li>
+      </ul>
+      <p>All reviews: {totalReviews}</p>
+      <Average points={points} totalReviews={totalReviews}></Average>
+      <PositivePercent positiveReviews={positiveReviews} totalReviews={totalReviews}></PositivePercent>
+  </div>
+  
+}
+
 const App = () => {
   // save clicks of each button to its own state
   const [good, setGood] = useState(0)
@@ -55,15 +70,7 @@ const App = () => {
       <button onClick={handleGoodClick}>GOOD</button>
       <button onClick={handleNeutralClick}>NEUTRAL</button>
       <button onClick={handleBadClick}>BAD</button>
-      <p>OUR STATS:</p>
-      <ul>
-        <li>GOOD: {good}</li>
-        <li>NEUTRAL: {neutral}</li>
-        <li>BAD: {bad}</li>
-      </ul>
-      <p>All reviews: {totalReviews}</p>
-      <Average points={points} totalReviews={totalReviews}></Average>
-      <PositivePercent positiveReviews={positiveReviews} totalReviews={totalReviews}></PositivePercent>
+      <Statistics good={good} bad={bad} neutral={neutral} totalReviews={totalReviews} points={points} positiveReviews={positiveReviews}/>
     </div>
   )
 }
