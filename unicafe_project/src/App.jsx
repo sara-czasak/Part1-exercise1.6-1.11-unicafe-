@@ -2,12 +2,12 @@ import { use, useState } from 'react'
 
 const Average = ({points, totalReviews}) => {
   const averageReviews= points / totalReviews
-  return <p>Our avridge: {averageReviews}</p>
+  return <p>Our avridge {averageReviews}</p>
 }
 
 const PositivePercent = ({positiveReviews, totalReviews}) => {
   const percent = (positiveReviews / totalReviews) * 100
-  return <p>Positive reviews: {percent}%</p>
+  return <p>Positive reviews {percent}%</p>
 }
 
 const Statistics = ({good, neutral, bad, totalReviews, points, positiveReviews}) => {
@@ -20,15 +20,15 @@ const Statistics = ({good, neutral, bad, totalReviews, points, positiveReviews})
   }
   else {
     return <div>
-    <p>OUR STATS:</p>
-      <ul>
-        <li>GOOD: {good}</li>
-        <li>NEUTRAL: {neutral}</li>
-        <li>BAD: {bad}</li>
-      </ul>
-      <p>All reviews: {totalReviews}</p>
-      <Average points={points} totalReviews={totalReviews}></Average>
-      <PositivePercent positiveReviews={positiveReviews} totalReviews={totalReviews}></PositivePercent>
+          <h3>OUR STATS:</h3>
+      <table>
+        <tr>good {good}</tr>
+        <tr>neutral {neutral}</tr>
+        <tr>bad {bad}</tr>
+        <tr>All reviews {totalReviews}</tr>
+        <tr><Average points={points} totalReviews={totalReviews}></Average></tr>
+        <tr><PositivePercent positiveReviews={positiveReviews} totalReviews={totalReviews}></PositivePercent></tr>
+      </table>
   </div>
   }
 }
